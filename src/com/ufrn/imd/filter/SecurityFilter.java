@@ -49,7 +49,7 @@ public class SecurityFilter implements Filter {
 		Usuario usuarioLogado = (Usuario) req.getSession().getAttribute("usuarioLogado");
 		
 		if(usuarioLogado == null) {
-			res.sendRedirect("/MaterialJsf/index.jsf");
+			res.sendRedirect("/SigReserva/login.jsf");
 		} else {
 			chain.doFilter(request, response);
 		}
