@@ -2,26 +2,52 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:b="http://bootsfaces.net/ui">
+      xmlns:b="http://bootsfaces.net/ui"
+      template="/include/template.xhtml">
     <h:head>
         <title>SigReserva</title>
         <meta name="author" content="The Author"></meta>
     </h:head>
-    <h:body style="padding: 60px;">
-        <b:navBar brand="SigReserva" brandHref="#" fixed="top" inverse="true">
-            <b:navbarLinks>
-                <b:navLink value="Home" href="#"></b:navLink>
-                <b:navLink value="About" href="#about"></b:navLink>
-                <b:navLink value="Contact" href="#contact"></b:navLink>
-            </b:navbarLinks>
-        </b:navBar>
-        <b:container>
-            <b:jumbotron>
-                <h1>SigReserva</h1>
-                <p> Use this JSF document as a way to quickly start any new project.</p>
-                <p> All you get is this text and a mostly barebone JSF document.</p>
-            </b:jumbotron>
-        </b:container>
-
+    <h:body>
+	    <b:navBar brand="SigReserva" brandHref="#" inverse="true">
+		</b:navBar>
+		<h:form id="loginForm">
+		  <b:container layout="fluid">
+		    <b:panel title="Entrar" look="primary" span="6" offset="3" collapsible="false">
+		      <b:row>
+		        <b:column medium-screen="2">
+		          <h:outputText value="Usuário:" for="Usuário" />
+		        </b:column>
+		        <b:column medium-screen="6">
+		          <b:inputText placeholder="Usuário" id="Usuário" value=""
+		                       ajax="true" autocomplete="false" update="@(.message)">
+		          </b:inputText>
+		        </b:column>
+		        <b:column medium-screen="6" style-class="message">
+		          <b:message for="Usuário" />
+		        </b:column>
+		      </b:row>
+		      <b:row tooltip="This password has fancy error messages.">
+		        <b:column medium-screen="2">
+		          <h:outputText value="Senha:" />
+		        </b:column>
+		        <b:column medium-screen="6">
+		          <b:inputSecret placeholder="Senha" id="Senha" value=""
+		                         ajax="true" autocomplete="false">
+		          </b:inputSecret>
+		        </b:column>
+		        <b:column medium-screen="8" styleClass="message">
+		          <b:message for="Senha"/>
+		        </b:column>
+		      </b:row>
+		      <b:row>
+		        <b:column span="3" offset="3">
+		          <b:commandButton value="login" onclick="" look="primary"
+		                           style="width:100%" />
+		        </b:column>
+		      </b:row>
+		    </b:panel>
+		  </b:container>
+		</h:form>	
     </h:body>
 </html>
